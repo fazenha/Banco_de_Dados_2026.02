@@ -61,8 +61,8 @@ ALTER TABLE livro_has_usuario ADD CONSTRAINT fk_livro_id FOREIGN KEY (fk_livro_i
 ALTER TABLE livro_has_usuario ADD CONSTRAINT fk_usuario_id FOREIGN KEY (fk_usuario_id) REFERENCES usuario(pk_usuario_id);
 
 -- 9. ADICIONA NOVAS COLUNAS ÀS TABELAS
-ALTER TABLE editora ADD COLUMN ano INT NOT NULL CHECK (ano > 0);
-ALTER TABLE editora ADD COLUMN isbn INT NOT NULL;
+ALTER TABLE livro ADD COLUMN ano INT NOT NULL CHECK (ano > 0);
+ALTER TABLE livro ADD COLUMN isbn INT NOT NULL;
 
 -- 10. REMOVER COLUNAS DAS TABELAS
 -- ALTER TABLE editora DROP COLUMN isbn; 
