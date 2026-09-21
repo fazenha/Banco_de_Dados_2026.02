@@ -2,6 +2,7 @@
 
 Guia prático e rápido para uso do Git e GitHub no dia a dia e em trabalhos em equipe.
 
+*Prof. Flávio Copola Azenha*
 ---
 
 ## Sumário
