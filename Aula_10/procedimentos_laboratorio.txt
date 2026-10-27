@@ -1,0 +1,22 @@
+mysqldump -u XXXXX -pXXXXX --databases banco_de_dados > 2026-10-27-banco_de_dados.sql 
+
+
+show binary logs;
+show binlog events in 'binlog.000049';
+
+
+-- Sessão 1: transação confirmada
+START TRANSACTION;
+INSERT INTO livro_has_usuario VALUES
+  (6, 9, '2026-10-20', '2026-11-03', NULL);
+UPDATE livro SET qtd_disponivel = qtd_disponivel - 1
+WHERE pk_livro_id = 6;
+COMMIT;
+ 
+-- Sessão 2: transação sem COMMIT
+START TRANSACTION;
+DELETE FROM livro_has_usuario
+WHERE fk_usuario_id = 7;
+ 
+-- Terminal: queda de energia
+SET PERSIST log_error_verbosity = 3
